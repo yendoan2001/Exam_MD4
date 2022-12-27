@@ -17,6 +17,7 @@ const chooseBranch = value => {
                          <a href="/admin/staffs/update/${employee._id}"class="btn btn-primary">Update</a>
                      </td>`;
             html += `</tr>`;
+
         })
         document.getElementById('list-staff').innerHTML = html;
     })
