@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const CLOUD_DB_URL = 'mongodb+srv://YenDoan:yendoan1A@yendoan0501.117vzjo.mongodb.net/exam';
+const CLOUD_DB_URL = 'mongodb+srv://YenDoan:yendoan1A@yendoan0501.117vzjo.mongodb.net/testMD4';
 
 let database = {
     connect: () => {

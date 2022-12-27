@@ -1,5 +1,5 @@
 import express from 'express';
-import router from './src/routers/car.router'
+import router from './src/routers/staff.router'
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const PORT = 3000;

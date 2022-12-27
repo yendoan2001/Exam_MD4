@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const car_router_1 = __importDefault(require("./src/routers/car.router"));
+const staff_router_1 = __importDefault(require("./src/routers/staff.router"));
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 const PORT = 3000;
@@ -17,7 +17,7 @@ app.use(fileUpload({
     createParentPath: true,
 }));
 database_1.default.connect();
-app.use('/', car_router_1.default);
+app.use('/', staff_router_1.default);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.listen(PORT, () => {

@@ -25,6 +25,8 @@
 
 </head>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -252,32 +254,40 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Product List</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Staff List</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                                <a href="/admin/products/create" class="btn btn-success mb-2">Add</a>
+                                <a href="/admin/staffs/create" class="btn btn-success mb-2 d-inline-block">Add</a>
+                            <select onchange="chooseBranch(this.value)" class="custom-select d-inline-block mb-2 w-25">
+                                <option value="All branches">All branches</option>
+                                <%data.branches.forEach(branch=>{%>
+                                <option value="<%=branch.id%>"><%=branch.name%></option>
+                                  <% })%>
+                            </select>
                             <table class="table table-bordered" id="dataTable">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th>Code</th>
                                     <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Brand</th>
+                                    <th>Age</th>
+                                    <th>Salary</th>
+                                    <th>Branch</th>
                                     <th>Function</th>
                                 </tr>
                                 </thead>
-                                <tbody id="list-product">
-                                <% cars.forEach((item, index) => { %>
+                                <tbody id="list-staff">
+                                <% data.staffs.forEach((item, index) => { %>
                                     <tr>
-                                        <td><%= index + 1 %></td>
-                                        <td><a href="/admin/products/detail/<%=item._id%>"><%= item.name%></a></td>
-                                        <td><%= item.price%></td>
-                                        <td><%= (item.brand) ? item.brand.name : "None" %></td>
+                                        <td><%= item.code %></td>
+                                        <td><a href="/admin/staffs/detail/<%=item._id%>"><%= item.name%></a></td>
+                                        <td><%= item.age%></td>
+                                        <td><%= item.salary%></td>
+                                        <td><%= (item.branch) ? item.branch.name : "None" %></td>
                                         <td>
                                             <a onclick="return confirm('Are you sure?')"
-                                               href="/admin/products/delete/<%= item._id %>" class="btn btn-danger">Delete</a>
-                                            <a href="/admin/products/update/<%= item._id %>"
+                                               href="/admin/staffs/delete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                                            <a href="/admin/staffs/update/<%= item._id %>"
                                                class="btn btn-primary">Update</a>
                                         </td>
                                     </tr>
@@ -352,7 +362,6 @@
 
 <!-- Page level custom scripts -->
 <script src="/js/demo/datatables-demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
 <script src="/js/my.js"></script>
 

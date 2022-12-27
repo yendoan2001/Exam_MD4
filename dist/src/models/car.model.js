@@ -6,17 +6,14 @@ const carSchema = new mongoose_1.Schema({
         type: String,
         required: [true, 'Please include car name']
     },
-    brand: {
+    branch: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: 'Brand'
     },
-    price: {
+    age: {
         type: Number,
         required: [true, 'Please include price']
     },
-    description: {
-        type: String,
-    }
 });
 const Car = (0, mongoose_1.model)('Car', carSchema);
 exports.default = Car;

@@ -23,13 +23,17 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose/types/inferschematype" />
 import { Schema } from "mongoose";
-declare const Car: import("mongoose").Model<{
+declare const Staff: import("mongoose").Model<{
+    code: string;
     name: string;
     age: number;
+    salary: number;
     branch?: import("mongoose").Types.ObjectId;
 }, {}, {}, {}, Schema<any, import("mongoose").Model<any, any, any, any, any>, {}, {}, {}, {}, import("mongoose").DefaultSchemaOptions, {
+    code: string;
     name: string;
     age: number;
+    salary: number;
     branch?: import("mongoose").Types.ObjectId;
 }>>;
-export default Car;
+export default Staff;
